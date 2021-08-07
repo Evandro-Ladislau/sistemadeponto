@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.dio'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
 
 configurations {
 	compileOnly {
@@ -19,12 +19,34 @@ repositories {
 }
 
 dependencies {
+	//essas dependencias referem-se a conexao com bd, mvc e autoconfiguração de reloads.
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//dependencia do jackson responsavel por fazer o parse de jason para o objeto.
+	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.7'
+
+	//conector do banco de dados mysql
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	//ajuda a desenvolver mais rapido e a preocupação fica  com regra de negocio e não com o código em si.
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//dependencia do swagger - ela vai documentar a aplicação.
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ualidator', version: '2.9.2'
+
+	//auditoria da nossa api, regra de negocio dentro do banco abstraida.
+	implementation group: 'org.hibertnate', name: 'hibernate-envers', version: '5.4.17.Final'
+	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.5.Final'
+
+	//toda vez que criar uma app spring ele da pra gente o status do teste.
+	testImplementation ('org.springframework.boot:spring-boot-starter-test'){
+		exclude group: 'org.junit.vintag', module: 'juunit-vintage-engine'
+	}
 }
 
 test {
