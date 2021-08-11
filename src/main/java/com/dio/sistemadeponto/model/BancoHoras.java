@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor //subistituiu o construtor sem argumento
 @EqualsAndHashCode // subistituiu o equals e hashcode que esta comenta, primeira vez que vejo
 @Builder //teste de softer e passagem de dados
-
+@Entity
 public class BancoHoras {
     @AllArgsConstructor
     @NoArgsConstructor
@@ -25,6 +27,8 @@ public class BancoHoras {
         private long idBancoHoras;
         private long idMovimento;
         private long idUsuario;
+
+
     }
 
     @EmbeddedId

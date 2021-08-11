@@ -2,8 +2,7 @@ package com.dio.sistemadeponto.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor //subistituiu o construtor sem argumento
 @EqualsAndHashCode // subistituiu o equals e hashcode que esta comenta, primeira vez que vejo
 @Builder //teste de softer e passagem de dados
+@Entity
 public class Movimentacao {
 
     @AllArgsConstructor
@@ -26,11 +26,16 @@ public class Movimentacao {
     private long idUsuario;
     }
 
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
     private MovimentacaoId id;
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private BigDecimal periodo;
+    @ManyToOne
     private Ocorrencia ocorrencia;
+
+    @ManyToOne
     private Calendario calendario;
 }

@@ -2,9 +2,7 @@ package com.dio.sistemadeponto.model;
 
 import lombok.*;
 
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -14,7 +12,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor //subistituiu o construtor sem argumento
 @EqualsAndHashCode // subistituiu o equals e hashcode que esta comenta, primeira vez que vejo
 @Builder //teste de softer e passagem de dados
+@Entity
 public class Usuario {
+    @Id
     private Long id;
     @ManyToOne
     private CategoriaUsuario categoriaUsuario;

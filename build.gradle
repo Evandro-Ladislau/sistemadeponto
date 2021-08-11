@@ -34,14 +34,20 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	implementation 'com.h2database:h2'
+
+	
+
 	//dependencia do swagger - ela vai documentar a aplicação.
-	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
-	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-	implementation group: 'io.springfox', name: 'springfox-swagger-ualidator', version: '2.9.2'
+	//implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	//implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	//implementation group: 'io.springfox', name: 'springfox-swagger-ualidator', version: '2.9.2'
 
 	//auditoria da nossa api, regra de negocio dentro do banco abstraida.
-	implementation group: 'org.hibertnate', name: 'hibernate-envers', version: '5.4.17.Final'
-	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.5.Final'
+	//compile group: 'org.hibertnate', name: 'hibernate-envers', version: '5.4.17.Final'
+	//compile	group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.5.Final'
+
+
 
 	//toda vez que criar uma app spring ele da pra gente o status do teste.
 	testImplementation ('org.springframework.boot:spring-boot-starter-test'){
