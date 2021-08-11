@@ -13,8 +13,10 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode // subistituiu o equals e hashcode que esta comenta, primeira vez que vejo
 @Builder //teste de softer e passagem de dados
 @Entity
+
 public class Usuario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private CategoriaUsuario categoriaUsuario;

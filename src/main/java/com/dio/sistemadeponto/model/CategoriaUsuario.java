@@ -3,6 +3,8 @@ package com.dio.sistemadeponto.model;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Getter //substitui os metodos getters
@@ -15,6 +17,7 @@ import javax.persistence.Id;
 public class CategoriaUsuario {
     //trabalhar com long facilita o uso do jpa
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String descricao;
 }

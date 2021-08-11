@@ -21,7 +21,7 @@ public class JornadaTrabalhoController {
         return jornadaService.saveJornada(jonadaTrabalho);
     }
 
-    @GetMapping
+    @GetMapping()
     public List<JornadaTrabalho> getJornadaList(){
         return jornadaService.findAll();
     }
@@ -30,5 +30,20 @@ public class JornadaTrabalhoController {
     public ResponseEntity <JornadaTrabalho> getJorndaByID(@PathVariable("idJornada") Long idJornada){
         return ResponseEntity.ok(jornadaService.getById(idJornada).orElseThrow(() -> new NoSuchElementException("Jornada não encontrada.")));
 
+    }
+
+    @PutMapping()
+    public JornadaTrabalho updateJornada(@RequestBody JornadaTrabalho jonadaTrabalho){
+        return jornadaService.updateJornada(jonadaTrabalho);
+    }
+
+    @DeleteMapping("/{idJornada}")
+    public ResponseEntity deleteByID(@PathVariable("idJornada") Long idJornada) throws Exception {
+        try {
+            jornadaService.deleteJornada(idJornada);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return  (ResponseEntity<JornadaTrabalho>) ResponseEntity.ok();
     }
 }

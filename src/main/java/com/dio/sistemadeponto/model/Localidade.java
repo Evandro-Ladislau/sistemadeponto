@@ -2,10 +2,7 @@ package com.dio.sistemadeponto.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Getter //substitui os metodos getters
 @Setter //substituiu os metodos setters
